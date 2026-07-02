@@ -22,7 +22,7 @@ export function SiteFooter() {
     <footer className="w-full border-t border-t-[0.5px] border-border-custom bg-navy py-16 text-white">
       <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
         <div className="px-6 sm:px-8 lg:px-12">
-          <Logo variant="full" size="sm" dark />
+          <Logo size="sm" dark />
           <p className="mt-3 max-w-xs text-body text-white/60">
             Corporate counsel for decisive companies. Advising founders,
             boards, investors, and executive teams.

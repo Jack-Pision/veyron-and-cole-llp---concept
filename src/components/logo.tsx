@@ -1,80 +1,42 @@
 import Link from "next/link";
 
 interface LogoProps {
-  variant?: "full" | "mark" | "wordmark";
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md";
   dark?: boolean;
 }
 
-export function Logo({ variant = "full", size = "md", dark = false }: LogoProps) {
+export function Logo({ size = "sm", dark = false }: LogoProps) {
   const textColor = dark ? "text-white" : "text-navy";
-  const accentColor = dark ? "text-white/70" : "text-gold";
+  const subColor = dark ? "text-white/60" : "text-text-soft";
 
-  const sizes = {
-    sm: { icon: 28, text: "text-body", sub: "text-caption" },
-    md: { icon: 34, text: "text-body-lg", sub: "text-small" },
-    lg: { icon: 44, text: "text-section", sub: "text-body" },
-  };
-
-  const s = sizes[size];
-
-  const ScalesIcon = () => (
-    <svg
-      width={s.icon}
-      height={s.icon}
-      viewBox="0 0 32 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-      className={textColor}
-    >
-      {/* Center pillar */}
-      <line x1="16" y1="6" x2="16" y2="26" stroke="currentColor" strokeWidth="1.25" />
-      {/* Base */}
-      <line x1="10" y1="26" x2="22" y2="26" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
-      {/* Top beam */}
-      <line x1="6" y1="9" x2="26" y2="9" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
-      {/* Left pan */}
-      <path d="M6 9 L4 17 Q10 19 12 17 L10 9" stroke="currentColor" strokeWidth="1" fill="none" />
-      {/* Right pan */}
-      <path d="M22 9 L20 17 Q26 19 28 17 L26 9" stroke="currentColor" strokeWidth="1" fill="none" />
-      {/* Top ornament */}
-      <circle cx="16" cy="6" r="1.5" fill="currentColor" />
-    </svg>
-  );
-
-  if (variant === "mark") {
-    return (
-      <Link href="/" className="inline-flex items-center">
-        <ScalesIcon />
-      </Link>
-    );
-  }
-
-  if (variant === "wordmark") {
-    return (
-      <Link href="/" className="inline-flex items-center gap-1.5">
-        <span className={`font-serif font-semibold ${s.text} ${textColor} tracking-tight`}>
-          Veyron & Cole
-        </span>
-        <span className={`${s.sub} font-medium ${accentColor} tracking-widest`}>
-          LLP
-        </span>
-      </Link>
-    );
-  }
+  const iconSize = size === "sm" ? 18 : 22;
 
   return (
-    <Link href="/" className="inline-flex items-center gap-2.5">
-      <ScalesIcon />
-      <div className="flex flex-col leading-none">
-        <span className={`font-serif font-semibold ${s.text} ${textColor} tracking-tight`}>
-          Veyron & Cole
-        </span>
-        <span className={`${s.sub} font-medium ${accentColor} tracking-widest`}>
-          LLP
-        </span>
-      </div>
+    <Link href="/" className="inline-flex items-center gap-2">
+      <svg
+        width={iconSize}
+        height={iconSize}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className={textColor}
+        aria-hidden="true"
+      >
+        <line x1="12" y1="3" x2="12" y2="21" />
+        <line x1="8" y1="21" x2="16" y2="21" />
+        <line x1="5" y1="7" x2="19" y2="7" />
+        <path d="M5 7 L3.5 13 Q8 14.5 10.5 13 L9 7" />
+        <path d="M15 7 L13.5 13 Q18 14.5 20.5 13 L19 7" />
+      </svg>
+      <span className={`font-semibold tracking-tight ${size === "sm" ? "text-body" : "text-body-lg"} ${textColor}`}>
+        Veyron & Cole
+      </span>
+      <span className={`${size === "sm" ? "text-caption" : "text-small"} font-medium tracking-widest ${subColor}`}>
+        LLP
+      </span>
     </Link>
   );
 }

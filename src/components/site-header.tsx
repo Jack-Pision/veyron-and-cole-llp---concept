@@ -18,7 +18,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 w-full glass">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Logo variant="full" size="sm" />
+        <Logo size="sm" />
 
         <nav className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
@@ -46,7 +46,7 @@ export function SiteHeader() {
           <SheetContent side="right" className="w-72 bg-surface">
             <div className="flex flex-col gap-6">
               <div className="flex items-center justify-between">
-                <Logo variant="wordmark" size="sm" />
+                <Logo size="sm" />
                 <button
                   onClick={() => setOpen(false)}
                   className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-text-muted hover:bg-muted"
