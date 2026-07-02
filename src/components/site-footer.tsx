@@ -74,6 +74,38 @@ export function SiteFooter() {
           attorney-client relationship. Do not send confidential information
           until an attorney-client relationship has been established.
         </p>
+        <div className="mt-4 flex flex-wrap items-center gap-4 text-caption text-white/40">
+          <span>
+            Designed & built by{" "}
+            <Link
+              href="https://github.com/Jack-Pision"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/60 underline underline-offset-2 transition-colors hover:text-white"
+            >
+              Jack Pision
+            </Link>
+          </span>
+          <span className="hidden text-white/20 sm:inline">|</span>
+          <div className="flex items-center gap-3">
+            <Link
+              href="https://github.com/Jack-Pision"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/60 transition-colors hover:text-white"
+            >
+              GitHub
+            </Link>
+            <Link
+              href="https://x.com/Jack_pision"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/60 transition-colors hover:text-white"
+            >
+              X
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
   );

@@ -213,6 +213,32 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Branding */}
+      <section className="border-t border-t-[0.5px] border-border-custom bg-surface-muted/30 py-6">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-caption text-text-soft">
+            Designed & built by{" "}
+            <a
+              href="https://github.com/Jack-Pision"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-muted underline underline-offset-2 transition-colors hover:text-navy"
+            >
+              Jack Pision
+            </a>{" "}
+            —{" "}
+            <a
+              href="https://x.com/Jack_pision"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-muted underline underline-offset-2 transition-colors hover:text-navy"
+            >
+              @Jack_pision
+            </a>
+          </p>
+        </div>
+      </section>
+
       <AttorneyProfileDrawer
         attorney={selectedAttorney}
         open={drawerOpen}
