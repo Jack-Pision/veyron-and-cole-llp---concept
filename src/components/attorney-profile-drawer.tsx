@@ -31,7 +31,7 @@ export function AttorneyProfileDrawer({
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="sticky top-0 z-10 flex items-center justify-between border-b border-b-[0.5px] border-border-custom glass px-6 py-4">
+        <div className="sticky top-0 z-10 flex items-center justify-between border-b border-b-[0.5px] border-border-custom bg-white px-6 py-4">
           <h2 className="text-body font-semibold text-navy">
             Attorney Profile
           </h2>
