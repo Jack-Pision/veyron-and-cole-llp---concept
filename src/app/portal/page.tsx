@@ -80,6 +80,7 @@ export default function PortalPage() {
               heading="Client document portal"
               subtext="Submit matter documents through a secure-looking demo workflow. Do not upload real confidential information."
               align="left"
+              light
             />
           </FadeIn>
         </div>

@@ -53,6 +53,7 @@ function PracticeContent() {
               heading="Practice areas for modern companies"
               subtext="Focused legal support for transactions, contracts, compliance, employment, and intellectual property matters."
               align="left"
+              light
             />
           </FadeIn>
         </div>

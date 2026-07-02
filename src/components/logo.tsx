@@ -11,66 +11,42 @@ export function Logo({ variant = "full", size = "md", dark = false }: LogoProps)
   const accentColor = dark ? "text-white/70" : "text-gold";
 
   const sizes = {
-    sm: { mark: 28, text: "text-body", sub: "text-caption" },
-    md: { mark: 34, text: "text-body-lg", sub: "text-small" },
-    lg: { mark: 44, text: "text-section", sub: "text-body" },
+    sm: { icon: 28, text: "text-body", sub: "text-caption" },
+    md: { icon: 34, text: "text-body-lg", sub: "text-small" },
+    lg: { icon: 44, text: "text-section", sub: "text-body" },
   };
 
   const s = sizes[size];
 
-  const Mark = () => (
+  const ScalesIcon = () => (
     <svg
-      width={s.mark}
-      height={s.mark}
-      viewBox="0 0 44 44"
+      width={s.icon}
+      height={s.icon}
+      viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
+      className={textColor}
     >
-      {/* Outer square with subtle rounded corners */}
-      <rect
-        x="1"
-        y="1"
-        width="42"
-        height="42"
-        rx="4"
-        stroke="currentColor"
-        strokeWidth="1"
-        className={textColor}
-        fill="none"
-      />
-      {/* VC Monogram */}
-      <text
-        x="50%"
-        y="54%"
-        dominantBaseline="middle"
-        textAnchor="middle"
-        fill="currentColor"
-        className={textColor}
-        fontSize="18"
-        fontFamily="var(--font-serif)"
-        fontWeight="600"
-        letterSpacing="-0.02em"
-      >
-        VC
-      </text>
-      {/* Thin horizontal line accent */}
-      <line
-        x1="10"
-        y1="32"
-        x2="34"
-        y2="32"
-        stroke="currentColor"
-        strokeWidth="0.75"
-        className={accentColor}
-      />
+      {/* Center pillar */}
+      <line x1="16" y1="6" x2="16" y2="26" stroke="currentColor" strokeWidth="1.25" />
+      {/* Base */}
+      <line x1="10" y1="26" x2="22" y2="26" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
+      {/* Top beam */}
+      <line x1="6" y1="9" x2="26" y2="9" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
+      {/* Left pan */}
+      <path d="M6 9 L4 17 Q10 19 12 17 L10 9" stroke="currentColor" strokeWidth="1" fill="none" />
+      {/* Right pan */}
+      <path d="M22 9 L20 17 Q26 19 28 17 L26 9" stroke="currentColor" strokeWidth="1" fill="none" />
+      {/* Top ornament */}
+      <circle cx="16" cy="6" r="1.5" fill="currentColor" />
     </svg>
   );
 
   if (variant === "mark") {
     return (
       <Link href="/" className="inline-flex items-center">
-        <Mark />
+        <ScalesIcon />
       </Link>
     );
   }
@@ -90,7 +66,7 @@ export function Logo({ variant = "full", size = "md", dark = false }: LogoProps)
 
   return (
     <Link href="/" className="inline-flex items-center gap-2.5">
-      <Mark />
+      <ScalesIcon />
       <div className="flex flex-col leading-none">
         <span className={`font-serif font-semibold ${s.text} ${textColor} tracking-tight`}>
           Veyron & Cole

@@ -48,6 +48,7 @@ export default function TeamPage() {
               heading="Attorneys with business judgment"
               subtext="A focused legal team combining corporate experience, transaction discipline, and practical advisory judgment."
               align="left"
+              light
             />
           </FadeIn>
         </div>
