@@ -16,7 +16,7 @@ export const attorneys: Attorney[] = [
     id: "eleanor-veyron",
     name: "Eleanor Veyron",
     title: "Managing Partner",
-    image: "/images/attorney-1.svg",
+    image: "/images/attorney-1.jpg",
     practiceAreas: ["Corporate Law", "Mergers & Acquisitions"],
     experience: "18+ years",
     education: [
@@ -39,7 +39,7 @@ export const attorneys: Attorney[] = [
     id: "marcus-cole",
     name: "Marcus Cole",
     title: "Partner",
-    image: "/images/attorney-2.svg",
+    image: "/images/attorney-2.jpg",
     practiceAreas: ["Compliance & Risk", "Corporate Law"],
     experience: "15+ years",
     education: [
@@ -63,7 +63,7 @@ export const attorneys: Attorney[] = [
     id: "amara-bennett",
     name: "Amara Bennett",
     title: "Senior Counsel",
-    image: "/images/attorney-3.svg",
+    image: "/images/attorney-3.jpg",
     practiceAreas: ["Employment Law"],
     experience: "12+ years",
     education: [
@@ -86,7 +86,7 @@ export const attorneys: Attorney[] = [
     id: "julian-hart",
     name: "Julian Hart",
     title: "Counsel",
-    image: "/images/attorney-4.svg",
+    image: "/images/attorney-4.jpg",
     practiceAreas: ["Intellectual Property"],
     experience: "10+ years",
     education: [

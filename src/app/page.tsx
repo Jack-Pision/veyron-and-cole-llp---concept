@@ -69,7 +69,7 @@ export default function HomePage() {
             </div>
             <div className="relative hidden aspect-[4/3] overflow-hidden rounded-2xl lg:block">
               <Image
-                src="/images/hero-office.svg"
+                src="/images/hero-office.jpg"
                 alt="Premium corporate law firm office interior"
                 fill
                 className="object-cover"
@@ -169,7 +169,7 @@ export default function HomePage() {
             </div>
             <div className="relative hidden aspect-[16/10] overflow-hidden rounded-2xl lg:block">
               <Image
-                src="/images/portal-visual.svg"
+                src="/images/portal-visual.jpg"
                 alt="Secure document portal interface"
                 fill
                 className="object-cover"
