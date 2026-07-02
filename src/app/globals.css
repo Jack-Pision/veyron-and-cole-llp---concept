@@ -155,6 +155,14 @@
     @apply font-sans scroll-smooth;
     overflow-x: hidden;
   }
+  ::selection {
+    background-color: oklch(0.62 0.1 70 / 25%);
+    color: oklch(0.18 0.035 260);
+  }
+  ::-moz-selection {
+    background-color: oklch(0.62 0.1 70 / 25%);
+    color: oklch(0.18 0.035 260);
+  }
 }
 
 @layer utilities {
