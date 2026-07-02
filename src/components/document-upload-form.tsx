@@ -71,7 +71,7 @@ export function DocumentUploadForm({ onUpload }: DocumentUploadFormProps) {
           className="border-border-custom file:mr-4 file:border-0 file:bg-navy/5 file:px-3 file:py-1 file:text-sm file:text-navy"
         />
         {errors.fileName && (
-          <p className="text-xs text-error">{errors.fileName}</p>
+          <p className="text-small text-error">{errors.fileName}</p>
         )}
       </div>
       <div className="space-y-2">
@@ -90,7 +90,7 @@ export function DocumentUploadForm({ onUpload }: DocumentUploadFormProps) {
           ))}
         </Select>
         {errors.documentType && (
-          <p className="text-xs text-error">{errors.documentType}</p>
+          <p className="text-small text-error">{errors.documentType}</p>
         )}
       </div>
       <div className="space-y-2">
@@ -103,7 +103,7 @@ export function DocumentUploadForm({ onUpload }: DocumentUploadFormProps) {
           className="border-border-custom font-mono"
         />
         {errors.matterReference && (
-          <p className="text-xs text-error">{errors.matterReference}</p>
+          <p className="text-small text-error">{errors.matterReference}</p>
         )}
       </div>
       <div className="space-y-2">
@@ -119,13 +119,13 @@ export function DocumentUploadForm({ onUpload }: DocumentUploadFormProps) {
       </div>
       <Button
         type="submit"
-        className="w-full rounded-xl bg-navy text-white hover:bg-navy-soft"
+        className="w-full rounded-lg bg-navy text-white hover:bg-navy-soft"
       >
         <Upload className="mr-2 h-4 w-4" />
         Upload Document
       </Button>
       {success && (
-        <div className="flex items-center gap-2 rounded-lg bg-success/5 p-3 text-sm text-success">
+        <div className="flex items-center gap-2 rounded-lg bg-success/5 p-3 text-small text-success">
           <CheckCircle className="h-4 w-4" />
           Document uploaded successfully.
         </div>

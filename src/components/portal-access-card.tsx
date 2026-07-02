@@ -30,14 +30,14 @@ export function PortalAccessCard({ onAccess }: PortalAccessCardProps) {
   };
 
   return (
-    <div className="rounded-xl border border-[0.5px] border-border-custom bg-surface p-6 shadow-sm">
+    <div className="rounded-xl border border-[0.5px] border-border-custom bg-surface p-6 shadow-card">
       <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-navy/5">
         <Lock className="h-5 w-5 text-navy" />
       </div>
-      <h3 className="font-heading text-lg font-semibold text-navy">
+      <h3 className="text-card font-semibold text-navy">
         Client Access
       </h3>
-      <p className="mt-1 text-sm text-text-muted">
+      <p className="mt-1 text-body text-text-muted">
         Enter your credentials to access the document portal.
       </p>
       <form onSubmit={handleSubmit} className="mt-4 space-y-4">
@@ -62,13 +62,13 @@ export function PortalAccessCard({ onAccess }: PortalAccessCardProps) {
             className="border-border-custom font-mono"
           />
         </div>
-        {error && <p className="text-xs text-error">{error}</p>}
-        <p className="text-xs text-text-soft">
+        {error && <p className="text-small text-error">{error}</p>}
+        <p className="text-caption text-text-soft">
           Demo code: <span className="font-mono font-medium">VC-DEMO</span>
         </p>
         <Button
           type="submit"
-          className="w-full rounded-xl bg-navy text-white hover:bg-navy-soft"
+          className="w-full rounded-lg bg-navy text-white hover:bg-navy-soft"
         >
           Enter Portal
           <ArrowRight className="ml-2 h-4 w-4" />

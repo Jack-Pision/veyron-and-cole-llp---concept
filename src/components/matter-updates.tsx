@@ -13,8 +13,8 @@ interface MatterUpdatesProps {
 
 export function MatterUpdates({ updates }: MatterUpdatesProps) {
   return (
-    <div className="rounded-xl border border-[0.5px] border-border-custom bg-surface p-5">
-      <h3 className="mb-4 font-heading text-base font-semibold text-navy">
+    <div className="rounded-xl border border-[0.5px] border-border-custom bg-surface p-5 shadow-card">
+      <h3 className="mb-4 text-card font-semibold text-navy">
         Matter Updates
       </h3>
       <div className="space-y-4">
@@ -24,9 +24,9 @@ export function MatterUpdates({ updates }: MatterUpdatesProps) {
               <Clock className="h-3 w-3 text-gold" />
             </div>
             <div>
-              <p className="text-sm font-medium text-navy">{update.title}</p>
-              <p className="text-xs text-text-muted">{update.description}</p>
-              <p className="mt-0.5 text-xs text-text-soft">{update.time}</p>
+              <p className="text-small font-medium text-navy">{update.title}</p>
+              <p className="text-caption text-text-muted">{update.description}</p>
+              <p className="mt-0.5 text-caption text-text-soft">{update.time}</p>
             </div>
           </div>
         ))}

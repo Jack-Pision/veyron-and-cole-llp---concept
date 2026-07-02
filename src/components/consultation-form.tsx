@@ -34,7 +34,6 @@ export function ConsultationForm() {
   });
 
   const onSubmit = async (data: FormData) => {
-    // Simulate network delay
     await new Promise((resolve) => setTimeout(resolve, 800));
     console.log("Consultation request:", data);
     setSubmitted(true);
@@ -43,18 +42,18 @@ export function ConsultationForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-xl border border-success/20 bg-success/5 p-8 text-center">
+      <div className="rounded-xl border border-[0.5px] border-success/20 bg-success/5 p-8 text-center">
         <CheckCircle className="mx-auto h-10 w-10 text-success" />
-        <h3 className="mt-4 font-heading text-xl font-semibold text-navy">
+        <h3 className="mt-4 text-card font-semibold text-navy">
           Request Received
         </h3>
-        <p className="mt-2 text-sm text-text-muted">
+        <p className="mt-2 text-body text-text-muted">
           Thank you for reaching out. A member of our team will respond within
           one business day.
         </p>
         <Button
           variant="outline"
-          className="mt-6 rounded-xl"
+          className="mt-6 rounded-lg"
           onClick={() => setSubmitted(false)}
         >
           Send Another Message
@@ -75,7 +74,7 @@ export function ConsultationForm() {
             className="border-border-custom"
           />
           {errors.name && (
-            <p className="text-xs text-error">{errors.name.message}</p>
+            <p className="text-small text-error">{errors.name.message}</p>
           )}
         </div>
         <div className="space-y-2">
@@ -88,7 +87,7 @@ export function ConsultationForm() {
             className="border-border-custom"
           />
           {errors.email && (
-            <p className="text-xs text-error">{errors.email.message}</p>
+            <p className="text-small text-error">{errors.email.message}</p>
           )}
         </div>
       </div>
@@ -102,7 +101,7 @@ export function ConsultationForm() {
             className="border-border-custom"
           />
           {errors.company && (
-            <p className="text-xs text-error">{errors.company.message}</p>
+            <p className="text-small text-error">{errors.company.message}</p>
           )}
         </div>
         <div className="space-y-2">
@@ -121,7 +120,7 @@ export function ConsultationForm() {
             <option value="compliance">Compliance & Risk</option>
           </Select>
           {errors.consultationType && (
-            <p className="text-xs text-error">
+            <p className="text-small text-error">
               {errors.consultationType.message}
             </p>
           )}
@@ -137,13 +136,13 @@ export function ConsultationForm() {
           className="border-border-custom"
         />
         {errors.message && (
-          <p className="text-xs text-error">{errors.message.message}</p>
+          <p className="text-small text-error">{errors.message.message}</p>
         )}
       </div>
       <Button
         type="submit"
         disabled={isSubmitting}
-        className="w-full rounded-xl bg-navy text-white hover:bg-navy-soft sm:w-auto"
+        className="w-full rounded-lg bg-navy text-white hover:bg-navy-soft sm:w-auto"
       >
         <Send className="mr-2 h-4 w-4" />
         {isSubmitting ? "Sending..." : "Submit Request"}

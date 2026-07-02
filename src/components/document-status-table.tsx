@@ -19,8 +19,8 @@ export function DocumentStatusTable({ documents }: DocumentStatusTableProps) {
   return (
     <div>
       {/* Desktop table */}
-      <div className="hidden overflow-hidden rounded-xl border border-[0.5px] border-border-custom bg-surface md:block">
-        <table className="w-full text-left text-sm">
+      <div className="hidden overflow-hidden rounded-xl border border-[0.5px] border-border-custom bg-surface shadow-card md:block">
+        <table className="w-full text-left text-small">
           <thead>
             <tr className="border-b border-b-[0.5px] border-border-custom bg-surface-muted/50">
               <th className="px-4 py-3 font-medium text-text-muted">File</th>
@@ -37,7 +37,7 @@ export function DocumentStatusTable({ documents }: DocumentStatusTableProps) {
                   {doc.fileName}
                 </td>
                 <td className="px-4 py-3 text-text-muted">{doc.documentType}</td>
-                <td className="px-4 py-3 font-mono text-xs text-text-muted">
+                <td className="px-4 py-3 font-mono text-caption text-text-muted">
                   {doc.matterReference}
                 </td>
                 <td className="px-4 py-3 text-text-muted">
@@ -57,19 +57,19 @@ export function DocumentStatusTable({ documents }: DocumentStatusTableProps) {
         {documents.map((doc) => (
           <div
             key={doc.id}
-            className="rounded-xl border border-[0.5px] border-border-custom bg-surface p-4"
+            className="rounded-xl border border-[0.5px] border-border-custom bg-surface p-4 shadow-card"
           >
             <div className="flex items-start justify-between gap-2">
               <h4 className="font-medium text-navy">{doc.fileName}</h4>
               <StatusBadge status={doc.status} />
             </div>
-            <div className="mt-2 space-y-1 text-sm text-text-muted">
+            <div className="mt-2 space-y-1 text-small text-text-muted">
               <p>
                 <span className="text-text-soft">Type:</span> {doc.documentType}
               </p>
               <p>
                 <span className="text-text-soft">Matter:</span>{" "}
-                <span className="font-mono text-xs">{doc.matterReference}</span>
+                <span className="font-mono text-caption">{doc.matterReference}</span>
               </p>
               <p>
                 <span className="text-text-soft">Uploaded:</span>{" "}

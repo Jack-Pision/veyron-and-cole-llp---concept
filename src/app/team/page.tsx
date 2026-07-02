@@ -4,6 +4,7 @@ import { useState } from "react";
 import { SectionHeader } from "@/components/section-header";
 import { AttorneyCard } from "@/components/attorney-card";
 import { AttorneyProfileDrawer } from "@/components/attorney-profile-drawer";
+import { FadeIn } from "@/components/fade-in";
 import { attorneys, type Attorney } from "@/data/attorneys";
 
 const practiceFilters = [
@@ -39,14 +40,16 @@ export default function TeamPage() {
   return (
     <>
       {/* Page Header */}
-      <section className="bg-navy py-16 sm:py-20">
+      <section className="bg-navy py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            eyebrow="Our Team"
-            heading="Attorneys with business judgment"
-            subtext="A focused legal team combining corporate experience, transaction discipline, and practical advisory judgment."
-            align="left"
-          />
+          <FadeIn>
+            <SectionHeader
+              eyebrow="Our Team"
+              heading="Attorneys with business judgment"
+              subtext="A focused legal team combining corporate experience, transaction discipline, and practical advisory judgment."
+              align="left"
+            />
+          </FadeIn>
         </div>
       </section>
 
@@ -54,35 +57,38 @@ export default function TeamPage() {
       <section className="bg-background py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Filter Pills */}
-          <div className="mb-8 flex flex-wrap gap-2">
-            {practiceFilters.map((f) => (
-              <button
-                key={f}
-                onClick={() => setFilter(f)}
-                className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
-                  filter === f
-                    ? "bg-navy text-white"
-                    : "border border-[0.5px] border-border-custom bg-surface text-text-muted hover:border-navy/30 hover:text-navy"
-                }`}
-              >
-                {f}
-              </button>
-            ))}
-          </div>
+          <FadeIn>
+            <div className="mb-8 flex flex-wrap gap-2">
+              {practiceFilters.map((f) => (
+                <button
+                  key={f}
+                  onClick={() => setFilter(f)}
+                  className={`rounded-full px-4 py-2 text-small font-medium transition-all duration-200 ${
+                    filter === f
+                      ? "bg-navy text-white shadow-card"
+                      : "border border-[0.5px] border-border-custom bg-surface text-text-muted hover:border-navy/30 hover:text-navy"
+                  }`}
+                >
+                  {f}
+                </button>
+              ))}
+            </div>
+          </FadeIn>
 
           {/* Attorney Grid */}
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredAttorneys.map((attorney) => (
-              <AttorneyCard
-                key={attorney.id}
-                attorney={attorney}
-                onOpenProfile={openProfile}
-              />
+            {filteredAttorneys.map((attorney, i) => (
+              <FadeIn key={attorney.id} delay={i * 0.05}>
+                <AttorneyCard
+                  attorney={attorney}
+                  onOpenProfile={openProfile}
+                />
+              </FadeIn>
             ))}
           </div>
 
           {filteredAttorneys.length === 0 && (
-            <div className="py-12 text-center text-sm text-text-muted">
+            <div className="py-12 text-center text-body text-text-muted">
               No attorneys found for this practice area.
             </div>
           )}

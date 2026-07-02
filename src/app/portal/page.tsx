@@ -7,6 +7,7 @@ import { PortalAccessCard } from "@/components/portal-access-card";
 import { DocumentUploadForm } from "@/components/document-upload-form";
 import { DocumentStatusTable } from "@/components/document-status-table";
 import { MatterUpdates } from "@/components/matter-updates";
+import { FadeIn } from "@/components/fade-in";
 import {
   mockDocuments,
   matterUpdates,
@@ -71,14 +72,16 @@ export default function PortalPage() {
   return (
     <>
       {/* Page Header */}
-      <section className="bg-navy py-16 sm:py-20">
+      <section className="bg-navy py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            eyebrow="Client Portal"
-            heading="Client document portal"
-            subtext="Submit matter documents through a secure-looking demo workflow. Do not upload real confidential information."
-            align="left"
-          />
+          <FadeIn>
+            <SectionHeader
+              eyebrow="Client Portal"
+              heading="Client document portal"
+              subtext="Submit matter documents through a secure-looking demo workflow. Do not upload real confidential information."
+              align="left"
+            />
+          </FadeIn>
         </div>
       </section>
 
@@ -108,25 +111,31 @@ export default function PortalPage() {
             <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
               {/* Left: Upload + Table */}
               <div className="space-y-8">
-                <div className="rounded-xl border border-[0.5px] border-border-custom bg-surface p-6 shadow-sm">
-                  <h3 className="mb-4 font-heading text-lg font-semibold text-navy">
-                    Upload Document
-                  </h3>
-                  <DocumentUploadForm onUpload={handleUpload} />
-                </div>
+                <FadeIn>
+                  <div className="rounded-xl border border-[0.5px] border-border-custom bg-surface p-6 shadow-card">
+                    <h3 className="mb-4 text-card font-semibold text-navy">
+                      Upload Document
+                    </h3>
+                    <DocumentUploadForm onUpload={handleUpload} />
+                  </div>
+                </FadeIn>
 
-                <div>
-                  <h3 className="mb-4 font-heading text-lg font-semibold text-navy">
-                    Uploaded Documents
-                  </h3>
-                  <DocumentStatusTable documents={documents} />
-                </div>
+                <FadeIn delay={0.1}>
+                  <div>
+                    <h3 className="mb-4 text-card font-semibold text-navy">
+                      Uploaded Documents
+                    </h3>
+                    <DocumentStatusTable documents={documents} />
+                  </div>
+                </FadeIn>
               </div>
 
               {/* Right: Matter Updates */}
-              <div>
-                <MatterUpdates updates={matterUpdates} />
-              </div>
+              <FadeIn delay={0.15}>
+                <div>
+                  <MatterUpdates updates={matterUpdates} />
+                </div>
+              </FadeIn>
             </div>
           )}
         </div>

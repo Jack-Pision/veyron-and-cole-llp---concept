@@ -10,10 +10,10 @@ import {
   Shield,
   ClipboardCheck,
 } from "lucide-react";
-import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/components/section-header";
 import { FAQAccordion } from "@/components/faq-accordion";
+import { FadeIn } from "@/components/fade-in";
 import { practiceAreas } from "@/data/practices";
 import { attorneys } from "@/data/attorneys";
 
@@ -45,14 +45,16 @@ function PracticeContent() {
   return (
     <>
       {/* Page Header */}
-      <section className="bg-navy py-16 sm:py-20">
+      <section className="bg-navy py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            eyebrow="What We Do"
-            heading="Practice areas for modern companies"
-            subtext="Focused legal support for transactions, contracts, compliance, employment, and intellectual property matters."
-            align="left"
-          />
+          <FadeIn>
+            <SectionHeader
+              eyebrow="What We Do"
+              heading="Practice areas for modern companies"
+              subtext="Focused legal support for transactions, contracts, compliance, employment, and intellectual property matters."
+              align="left"
+            />
+          </FadeIn>
         </div>
       </section>
 
@@ -69,9 +71,9 @@ function PracticeContent() {
                   <button
                     key={practice.id}
                     onClick={() => setSelectedId(practice.id)}
-                    className={`flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left text-sm font-medium transition-all ${
+                    className={`flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left text-small font-medium transition-all duration-200 ${
                       isActive
-                        ? "border border-gold/30 bg-gold/5 text-navy shadow-sm"
+                        ? "border border-[0.5px] border-gold/30 bg-gold/5 text-navy shadow-card"
                         : "border border-transparent text-text-muted hover:bg-surface-muted/50 hover:text-navy"
                     }`}
                   >
@@ -86,91 +88,100 @@ function PracticeContent() {
 
             {/* Right: Practice Detail */}
             <div className="space-y-8">
-              <div>
-                <h2 className="font-heading text-2xl font-semibold text-navy sm:text-3xl">
-                  {selected.title}
-                </h2>
-                <p className="mt-3 text-base leading-relaxed text-text-muted">
-                  {selected.summary}
-                </p>
-              </div>
-
-              <div>
-                <h3 className="mb-3 text-xs font-semibold uppercase tracking-widest text-text-soft">
-                  How We Help
-                </h3>
-                <ul className="space-y-2">
-                  {selected.services.map((service) => (
-                    <li
-                      key={service}
-                      className="flex gap-3 text-sm text-text-main"
-                    >
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
-                      {service}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="mb-3 text-xs font-semibold uppercase tracking-widest text-text-soft">
-                  Industries Served
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {selected.industries.map((industry) => (
-                    <span
-                      key={industry}
-                      className="rounded-full border border-[0.5px] border-border-custom bg-surface px-3 py-1 text-sm text-text-muted"
-                    >
-                      {industry}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {relatedAttorneys.length > 0 && (
+              <FadeIn>
                 <div>
-                  <h3 className="mb-3 text-xs font-semibold uppercase tracking-widest text-text-soft">
-                    Related Attorneys
+                  <h2 className="font-serif text-page text-navy">
+                    {selected.title}
+                  </h2>
+                  <p className="mt-3 text-body-lg text-text-muted">
+                    {selected.summary}
+                  </p>
+                </div>
+              </FadeIn>
+
+              <FadeIn delay={0.05}>
+                <div>
+                  <h3 className="mb-3 text-caption font-semibold uppercase tracking-widest text-text-soft">
+                    How We Help
                   </h3>
-                  <div className="space-y-3">
-                    {relatedAttorneys.map((attorney) => (
-                      <div
-                        key={attorney.id}
-                        className="flex items-center gap-4 rounded-xl border border-[0.5px] border-border-custom bg-surface p-4"
+                  <ul className="space-y-2">
+                    {selected.services.map((service) => (
+                      <li
+                        key={service}
+                        className="flex gap-3 text-body text-text-main"
                       >
-                        <div className="h-10 w-10 shrink-0 rounded-full bg-navy/5" />
-                        <div>
-                          <p className="text-sm font-medium text-navy">
-                            {attorney.name}
-                          </p>
-                          <p className="text-xs text-text-muted">
-                            {attorney.title}
-                          </p>
-                        </div>
-                      </div>
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+                        {service}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </FadeIn>
+
+              <FadeIn delay={0.1}>
+                <div>
+                  <h3 className="mb-3 text-caption font-semibold uppercase tracking-widest text-text-soft">
+                    Industries Served
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {selected.industries.map((industry) => (
+                      <span
+                        key={industry}
+                        className="rounded-full border border-[0.5px] border-border-custom bg-surface px-3 py-1 text-small text-text-muted"
+                      >
+                        {industry}
+                      </span>
                     ))}
                   </div>
                 </div>
+              </FadeIn>
+
+              {relatedAttorneys.length > 0 && (
+                <FadeIn delay={0.15}>
+                  <div>
+                    <h3 className="mb-3 text-caption font-semibold uppercase tracking-widest text-text-soft">
+                      Related Attorneys
+                    </h3>
+                    <div className="space-y-3">
+                      {relatedAttorneys.map((attorney) => (
+                        <div
+                          key={attorney.id}
+                          className="flex items-center gap-4 rounded-xl border border-[0.5px] border-border-custom bg-surface p-4 shadow-card"
+                        >
+                          <div className="h-10 w-10 shrink-0 rounded-full bg-navy/5" />
+                          <div>
+                            <p className="text-small font-medium text-navy">
+                              {attorney.name}
+                            </p>
+                            <p className="text-caption text-text-muted">
+                              {attorney.title}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </FadeIn>
               )}
 
-              <div>
-                <h3 className="mb-3 text-xs font-semibold uppercase tracking-widest text-text-soft">
-                  Frequently Asked Questions
-                </h3>
-                <FAQAccordion items={selected.faqs} />
-              </div>
+              <FadeIn delay={0.2}>
+                <div>
+                  <h3 className="mb-3 text-caption font-semibold uppercase tracking-widest text-text-soft">
+                    Frequently Asked Questions
+                  </h3>
+                  <FAQAccordion items={selected.faqs} />
+                </div>
+              </FadeIn>
 
-              {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-              <a
-                href="/#consultation"
-                className={cn(
-                  buttonVariants({ variant: "default" }),
-                  "inline-flex rounded-xl bg-navy px-4 py-2 text-sm text-white hover:bg-navy-soft"
-                )}
-              >
-                Schedule Consultation
-              </a>
+              <FadeIn delay={0.25}>
+                {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+                <a
+                  href="/#consultation"
+                  className="inline-flex h-10 items-center justify-center rounded-lg bg-navy px-5 text-small font-medium text-white hover:bg-navy-soft transition-colors"
+                >
+                  Schedule Consultation
+                </a>
+              </FadeIn>
             </div>
           </div>
         </div>
