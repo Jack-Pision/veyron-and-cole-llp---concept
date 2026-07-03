@@ -4,8 +4,6 @@ A premium corporate law firm website built as a portfolio concept project.
 
 **Designed & built by [Jack Pision](https://github.com/Jack-Pision)**
 
-## Live Demo
-
 - [GitHub](https://github.com/Jack-Pision)
 - [X / Twitter](https://x.com/Jack_pision)
 
